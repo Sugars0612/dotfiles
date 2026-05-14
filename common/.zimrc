@@ -1,0 +1,35 @@
+# 模块
+
+
+
+# 基础
+zmodule environment
+zmodule input
+# 提供一些别名
+zmodule utility
+
+# 补全系统
+zmodule zsh-users/zsh-completions --fpath src
+zmodule completion
+
+
+# 提示符
+zmodule joke/zim-starship
+
+# 插件
+zmodule git
+# 必须最后初始化的模块
+
+# 语法高亮(必须在 completion 之后 source)
+zmodule zsh-users/zsh-syntax-highlighting
+
+# 类似 Fish 的历史记录搜索，
+# 必须在 zsh-users/zsh-syntax-highlighting 之后 source。
+zmodule zsh-users/zsh-history-substring-search
+
+# 类似 Fish 的自动建议功能。
+# 为提升性能，请将以下内容添加到 ~/.zshrc：
+# ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+# (Fish-like autosuggestions for Zsh. Add the following to your ~/.zshrc to boost
+# performance: ZSH_AUTOSUGGEST_MANUAL_REBIND=1)
+zmodule zsh-users/zsh-autosuggestions
