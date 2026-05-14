@@ -104,4 +104,4 @@ fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 # }}} End configuration added by Zim Framework install
-fastfetch
+eval "$(starship init zsh)"

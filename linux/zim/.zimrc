@@ -14,7 +14,7 @@ zmodule completion
 
 
 # 提示符
-zmodule joke/zim-starship
+# zmodule joke/zim-starship
 
 # 插件
 zmodule git
