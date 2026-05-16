@@ -4,8 +4,9 @@
 
 ## 内容
 - Linux 配置
-  - Shell: zsh(基于zim)
- 
+  - Shell: zsh (使用[Zimfw](https://zimfw.sh/)管理插件)
+  - 终端复用器: tmux (使用[tpm](https://github.com/tmux-plugins/tpm)管理插件)
+  
 - Termux 配置
   - 字体/主题配色
   - Shell: fish
