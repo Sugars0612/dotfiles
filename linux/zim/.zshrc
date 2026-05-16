@@ -38,6 +38,8 @@ WORDCHARS=${WORDCHARS//[\/]}
 # git
 #
 
+# fzf
+source <(fzf --zsh)
 # Set a custom prefix for the generated aliases. The default prefix is 'G'.
 #zstyle ':zim:git' aliases-prefix 'g'
 
@@ -102,6 +104,12 @@ if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} 
   source ${ZIM_HOME}/zimfw.zsh init
 fi
 # Initialize modules.
+if [[ "$TERM" == "linux" ]]; then
+    PROMPT='%F{green}%n@%m%f:%F{blue}%~%f$ '
+    RPROMPT=''
+else
+    eval "$(starship init zsh)"
+fi
 source ${ZIM_HOME}/init.zsh
 # }}} End configuration added by Zim Framework install
 eval "$(starship init zsh)"

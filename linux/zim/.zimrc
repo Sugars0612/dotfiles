@@ -12,8 +12,7 @@ zmodule utility
 zmodule zsh-users/zsh-completions --fpath src
 zmodule completion
 
-
-# 提示符
+# 提示符 (这里因为虚拟控制台登录Shell原因 把使用的starship提示符放到~/.zshrc内)
 # zmodule joke/zim-starship
 
 # 插件
