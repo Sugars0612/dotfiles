@@ -1,2 +1,2 @@
 # tpm 配置
-.config/tmux/plugins/*
+common/.config/tmux/plugins/*
