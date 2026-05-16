@@ -18,7 +18,6 @@
 ```shell
 git clone https://github.com/Sugars0612/dotfiles
 cd dotfiles
-chmod +x ./bootstarp-termux.sh ./imstall-termux.sh
-./bootstarp-termux.sh
-./install-termux.sh
+chmod +x ./bootstarp-termux.sh ./install-termux.sh
+./bootstarp-termux.sh && ./install-termux.sh
 ```
