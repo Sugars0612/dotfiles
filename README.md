@@ -26,6 +26,7 @@ chmod +x ./bootstarp-termux.sh ./install-termux.sh
 
 - Common 配置
   - 终端复用器: tmux (使用[tpm](https://github.com/tmux-plugins/tpm)管理插件)
+  - 文本编辑器: neovim (使用[lazy-nvim](https://github.com/folke/lazy.nvim)管理插件) 
 
 ## 使用的软件
   ### GUI
