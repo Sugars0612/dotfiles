@@ -11,3 +11,5 @@ apt update -y && apt upgrade -y
 apt install -y stow
 # 安装Shell和提示符美化插件
 apt install -y fish starship fastfetch
+# 安装 fzf
+apt install fzf
