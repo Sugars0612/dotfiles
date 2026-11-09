@@ -1,0 +1,132 @@
+// ============================================================
+// 窗口规则 / 图层规则 / 模糊效果
+// ============================================================
+
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://niri-wm.github.io/niri/Configuration:-Window-Rules
+
+// --- NIRI BLUR START ---
+// 顶层的 blur 配置，细节调整 blur 的效果
+blur {
+    passes 3
+    offset 3
+    noise 0.02
+    saturation 1.5
+}
+// 全局窗口规则。让所有普通窗口以 xray 的形式显示 blur。xray 仅渲染一次模糊版本的背景，然后将其以类似"壁纸"的形式显示在窗口后面，不是实时渲染模糊，所以完全没有性能消耗。
+window-rule {
+    background-effect {
+        xray true
+        blur true
+    }
+}
+// 浮动窗口禁用 xray 可以实时渲染模糊效果但是性能消耗高，开启 xray 会穿过浮动窗口底下的窗口直接透视到桌面。看个人喜好选择禁用与否吧。
+window-rule {
+    match is-floating=true
+    background-effect {
+        xray true
+        blur true
+    }
+}
+// fuzzel 专属的 layer 规则
+layer-rule {
+    match namespace="^launcher$"
+    geometry-corner-radius 8
+    background-effect {
+        xray false
+        blur true
+    }
+}
+
+// mako 通知规则
+
+window-rule {
+    match app-id="cliphist-tui"
+
+    default-column-width { fixed 625; }
+    default-window-height { fixed 700; }
+    open-floating true
+    default-floating-position x=0 y=18 relative-to="top"
+}
+
+// 音量/亮度滑块 TUI
+window-rule {
+    match app-id="^slider-tui$"
+
+    open-floating true
+    default-floating-position x=0 y=18 relative-to="top"
+}
+
+// 网络 TUI (nmtui) 居中
+window-rule {
+    match app-id="^network-tui$"
+    open-floating true
+    default-column-width { fixed 725; }
+    default-window-height { fixed 800; }
+}
+
+// 蓝牙 TUI (bluetui) 居中
+window-rule {
+    match app-id="^bluetooth-tui$"
+    open-floating true
+    default-column-width { fixed 725; }
+    default-window-height { fixed 800; }
+}
+
+window-rule {
+
+    match app-id="waypaper"
+
+    open-floating true
+}
+
+// Work around WezTerm's initial configure bug
+// by setting an empty default-column-width.
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+// Example: enable rounded corners for all windows.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    //圆角
+    geometry-corner-radius 8
+    //剪掉圆角外的窗口内容
+    clip-to-geometry true
+    //透明度
+    opacity 0.99
+    //禁止边框画到窗口后面
+    draw-border-with-background false
+}
+
+// Overview 专用壁纸
+layer-rule {
+    match namespace="^awww-daemonoverview$"
+    place-within-backdrop true
+}

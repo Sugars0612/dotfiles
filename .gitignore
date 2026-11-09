@@ -1,2 +1,31 @@
 # tpm 配置
 common/.config/tmux/plugins/*
+
+# 浏览器数据(含密码/登录态)
+mozilla/
+
+# 运行期状态 & 空目录
+dconf/
+pulse/
+gtk-4.0/
+yay/
+systemd/
+nautilus/
+mpv/
+
+# 备份产物
+backups/
+*.bak
+*.bak-*
+
+# 第三方插件仓库
+tmux/plugins/
+waybar/.git/
+**/.git/
+
+# fcitx5 键盘布局缓存(机器生成,几 MB 无用数据)
+fcitx5/conf/cached_layouts
+
+# xdg-user-dirs 自动生成(可选,按需排除)
+user-dirs.dirs
+user-dirs.locale

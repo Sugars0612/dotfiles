@@ -1,0 +1,25 @@
+// ============================================================
+// 开机自启程序 (spawn-at-startup)
+// ============================================================
+
+// Add lines like this to spawn processes at startup.
+// Note that running niri as a session supports xdg-desktop-autostart,
+// which may be more convenient to use.
+// See the binds section below for more spawn examples.
+
+// 状态栏
+spawn-at-startup "waybar"
+// 输入法
+spawn-at-startup "fcitx5" "-d"
+// 通知权限 & 通知相关
+spawn-at-startup "/usr/lib/polkit-gnome-authentication-agent-1"
+spawn-at-startup "mako"
+// 守护剪切板进程
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+// 壁纸
+spawn-at-startup "awww-daemon"
+spawn-at-startup "awww-daemon" "-n" "overview"
+// 显示大小写锁定
+spawn-at-startup "swayosd-server"
+// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
+// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"

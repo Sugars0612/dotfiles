@@ -1,0 +1,64 @@
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+// Check the wiki for a full description of the configuration:
+// https://niri-wm.github.io/niri/Configuration:-Introduction
+
+// ============================================================
+// 主配置文件 (config.kdl)
+//
+// 其余配置已拆分到同目录下的独立文件，通过 include 引入：
+//   input.kdl      输入设备（键盘 / 触摸板 / 鼠标 / 小红点）
+//   output.kdl     显示器输出
+//   layout.kdl     窗口布局与外观（间距 / 列宽 / 焦点环 / 边框 / 阴影）
+//   startup.kdl    开机自启程序
+//   rules.kdl      窗口规则 / 图层规则 / 模糊效果
+//   binds.kdl      按键绑定
+//
+// 任一文件修改后 niri 会自动热重载，无需手动重启。
+// ============================================================
+
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
+
+environment {
+    LANG "zh_CN.UTF-8"
+    LANGUAGE "zh_CN"
+    XMODIFIERS "@im=fcitx"
+}
+
+cursor {
+    //鼠标的光标主题
+    xcursor-theme "breeze_cursors"
+
+    //大小
+    xcursor-size 30
+
+    //闲置 15s 自动隐藏光标
+    hide-after-inactive-ms 15000
+
+}
+
+hotkey-overlay {
+    // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
+    // skip-at-startup
+}
+
+// Animation settings.
+// The wiki explains how to configure individual animations:
+// https://niri-wm.github.io/niri/Configuration:-Animations
+animations {
+    // Uncomment to turn off all animations.
+    // off
+
+    // Slow down all animations by this factor. Values below 1 speed them up instead.
+    // slowdown 3.0
+}
+
+// ------------------------------------------------------------
+// 引入其余配置（均为顶层独立配置节，顺序无关）
+// ------------------------------------------------------------
+include "input.kdl"
+include "output.kdl"
+include "layout.kdl"
+include "startup.kdl"
+include "rules.kdl"
+include "binds.kdl"

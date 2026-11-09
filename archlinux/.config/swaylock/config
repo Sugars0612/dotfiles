@@ -1,0 +1,58 @@
+
+# ==========================================
+# Catppuccin Mocha - Mauve Edition
+# Niri / Wayland
+# ==========================================
+
+# Background
+screenshots
+effect-blur=10x5
+effect-vignette=0.5:0.5
+
+# Animation
+fade-in=0.3
+
+# Clock & Date
+clock
+timestr=%H:%M
+datestr=%Y-%m-%d
+
+# Indicator
+indicator
+indicator-radius=110
+indicator-thickness=8
+indicator-idle-visible
+
+# Font
+font=FiraCode Nerd Font
+font-size=40
+
+# General
+ignore-empty-password
+show-failed-attempts
+
+# Main colors
+text-color=cdd6f4
+inside-color=1e1e2ecc
+line-color=00000000
+separator-color=00000000
+
+# Mauve accent
+ring-color=cba6f7
+key-hl-color=b4befe
+
+# Clear state
+inside-clear-color=313244cc
+ring-clear-color=b4befe
+text-clear-color=cdd6f4
+
+# Verifying state
+inside-ver-color=313244cc
+ring-ver-color=cba6f7
+text-ver-color=cdd6f4
+
+# Wrong password
+inside-wrong-color=313244ee
+ring-wrong-color=f38ba8
+text-wrong-color=f38ba8
+
