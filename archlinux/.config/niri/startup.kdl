@@ -21,5 +21,7 @@ spawn-at-startup "awww-daemon"
 spawn-at-startup "awww-daemon" "-n" "overview"
 // 显示大小写锁定
 spawn-at-startup "swayosd-server"
+// 自动锁屏（睡眠）
+spawn-at-startup "~/.config/niri/scripts/swayidle.sh"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
