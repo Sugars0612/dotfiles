@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+#
+# Launch a power menu
+#
+# Dependencies:
+#   - fzf
+#
+# Author:  Jesse Mirabel <sejjymvm@gmail.com>
+# Date:    August 19, 2025
+# License: MIT
+
+main() {
+	local list=(
+		"锁屏"
+		"注销"
+		"睡眠"
+		"休眠"
+		"重启"
+		"关机"
+	)
+
+	local opts=(
+		--border-label=" 电源菜单 "
+		--border="sharp"
+		--cycle
+		--ghost="Search"
+		--highlight-line
+		--info="inline-right"
+		--reverse
+	)
+
+	local selected
+	selected=$(printf "%s\n" "${list[@]}" | fzf "${opts[@]}")
+
+	case $selected in
+		"锁屏")      loginctl lock-session ;;
+		"注销")    loginctl terminate-session "$XDG_SESSION_ID" ;;
+		"睡眠")   systemctl suspend ;;
+		"休眠") systemctl hibernate ;;
+		"重启")    systemctl reboot ;;
+		"关机")  systemctl poweroff ;;
+		*)         return 1 ;;
+	esac
+}
+
+main

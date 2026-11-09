@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# 音量 / 亮度滑块 TUI 启动器：点击顶栏图标调用；再次点击则关闭
+SCRIPT="$HOME/.config/waybar/scripts/sliders.py"
+
+if pgrep -f "waybar/scripts/sliders.py" >/dev/null 2>&1; then
+    pkill -f "waybar/scripts/sliders.py"
+    exit 0
+fi
+
+exec kitty \
+    --class slider-tui \
+    --title sliders \
+    -o hide_window_decorations=yes \
+    -o initial_window_width=84c \
+    -o initial_window_height=8c \
+    -e python3 "$SCRIPT"

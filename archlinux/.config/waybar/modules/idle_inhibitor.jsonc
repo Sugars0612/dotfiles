@@ -1,0 +1,14 @@
+{
+	"idle_inhibitor": {
+		"start-activated": false,
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "󰈈",
+			"deactivated": "󰈉"
+		},
+		"min-length": 3,
+		"max-length": 3,
+		"tooltip-format-activated": "空闲抑制: 已启用",
+		"tooltip-format-deactivated": "空闲抑制: 已停用"
+	}
+}

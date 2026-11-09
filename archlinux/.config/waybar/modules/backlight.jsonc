@@ -1,0 +1,14 @@
+{
+	"backlight": {
+		"format": "{icon} {percent}%",
+		"format-icons": [
+			"", "", "", "", "", "", "", "", ""
+		],
+		"min-length": 8,
+		"max-length": 8,
+		"on-scroll-up": "~/.config/waybar/scripts/backlight up",
+		"on-scroll-down": "~/.config/waybar/scripts/backlight down",
+		"on-click": "~/.config/waybar/scripts/sliders",
+		"tooltip-format": "屏幕亮度"
+	}
+}

@@ -1,3 +1,5 @@
 
 [Default Applications]
 inode/directory=thunar.desktop
+x-scheme-handler/clash=clash-verge.desktop;
+x-scheme-handler/clash-verge=clash-verge.desktop;

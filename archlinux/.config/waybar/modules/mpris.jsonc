@@ -1,0 +1,15 @@
+{
+	"mpris": {
+		"format": "{player_icon} {title} - {artist}",
+		"player-icons": {
+			"default": "󰐊"
+		},
+		"format-paused": "{status_icon} {title} - {artist}",
+		"status-icons": {
+			"paused": "󰏤"
+		},
+		"max-length": 1000,
+		"tooltip-format": "正在播放: {title} - {artist}",
+		"tooltip-format-paused": "已暂停: {title} - {artist}"
+	}
+}

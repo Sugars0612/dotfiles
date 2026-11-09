@@ -1,0 +1,7 @@
+{
+	"custom/power": {
+		"format": "󰤄",
+		"on-click": "kitty --class power-tui -e ~/.config/waybar/scripts/power",
+		"tooltip-format": "电源菜单"
+	}
+}

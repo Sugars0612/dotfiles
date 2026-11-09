@@ -1,0 +1,21 @@
+{
+	"bluetooth": {
+		"format": "󰂯",
+		"format-on": "󰂰",
+		"format-connected": "󰂱",
+		"format-off": "󰂲",
+		"format-disabled": "󰂲",
+		"min-length": 2,
+		"max-length": 2,
+		"on-click": "kitty --class bluetooth-tui -e bluetui",
+		"on-click-right": "~/.config/waybar/scripts/bluetooth off",
+		"tooltip-format": "设备地址: {device_address}",
+		"tooltip-format-on": "蓝牙",
+		"tooltip-format-connected": "设备: {device_alias}",
+		"tooltip-format-off": "蓝牙已关闭",
+		"tooltip-format-disabled": "蓝牙已禁用",
+		"tooltip-format-connected-battery": " 设备: {device_alias}\n电量: {device_battery_percentage}%",
+		"tooltip-format-enumerate-connected": "设备: {device_alias}",
+		"tooltip-format-enumerate-connected-battery": " 设备: {device_alias}\n电量: {device_battery_percentage}%"
+	}
+}

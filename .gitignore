@@ -13,6 +13,12 @@ systemd/
 nautilus/
 mpv/
 
+# IBus 运行时 socket 状态
+ibus/
+
+# Electron 应用缓存(可能含登录态)
+electron-netease-cloud-music/
+
 # 备份产物
 backups/
 *.bak
@@ -20,11 +26,10 @@ backups/
 
 # 第三方插件仓库
 tmux/plugins/
-waybar/.git/
 **/.git/
 
 # fcitx5 键盘布局缓存(机器生成,几 MB 无用数据)
-fcitx5/conf/cached_layouts
+cached_layouts
 
 # xdg-user-dirs 自动生成(可选,按需排除)
 user-dirs.dirs

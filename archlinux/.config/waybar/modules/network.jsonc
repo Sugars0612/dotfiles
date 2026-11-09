@@ -1,0 +1,12 @@
+{
+	"custom/network": {
+		"exec": "~/.config/waybar/scripts/network-status.sh",
+		"interval": 10,
+		"return-type": "json",
+		"format": "{}",
+		"min-length": 2,
+		"max-length": 2,
+		"on-click": "kitty --class network-tui -e nmtui",
+		"on-click-right": "~/.config/waybar/scripts/network off"
+	}
+}
