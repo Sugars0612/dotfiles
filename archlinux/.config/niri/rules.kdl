@@ -75,6 +75,14 @@ window-rule {
 }
 
 window-rule {
+    match app-id="^power-tui$"
+    open-floating true
+    default-column-width { fixed 725; }
+    default-window-height { fixed 800; }
+}
+
+
+window-rule {
 
     match app-id="waypaper"
 
