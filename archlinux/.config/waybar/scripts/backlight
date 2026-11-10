@@ -26,18 +26,64 @@ print_help() {
 	EOF
 }
 
+# Resolve the backlight device that drives the currently connected display.
+# On hybrid (Intel + NVIDIA) systems the panel can move between the two GPUs
+# when switching (switcherooctl / prime / optimus), while brightnessctl's
+# default device stays fixed. Match each backlight device to its DRM card via
+# the owning PCI device, then pick the one with a connected connector.
+get_device() {
+	local dev real dev_pci card card_pci conn
+
+	for dev in /sys/class/backlight/*; do
+		[ -e "$dev" ] || continue
+		real=$(readlink -f "$dev")
+		dev_pci=$(printf '%s\n' "$real" | grep -oE '0000:[0-9a-f]{2}:[0-9a-f]{2}\.[0-9]' | tail -n1)
+
+		for card in /sys/class/drm/card*; do
+			[ -e "$card" ] || continue
+			# Skip connector symlinks (card0-eDP-1, ...); keep only card0, card1, ...
+			[[ ${card##*/} =~ ^card[0-9]+$ ]] || continue
+			card_pci=$(printf '%s\n' "$(readlink -f "$card")" | grep -oE '0000:[0-9a-f]{2}:[0-9a-f]{2}\.[0-9]' | tail -n1)
+			[ -n "$dev_pci" ] && [ "$dev_pci" = "$card_pci" ] || continue
+
+			for conn in "${card}"-*; do
+				[ -e "$conn" ] || continue
+				if [ "$(cat "$conn/status" 2>/dev/null)" = connected ]; then
+					printf '%s\n' "${dev##*/}"
+					return 0
+				fi
+			done
+		done
+	done
+
+	# Fallback: brightnessctl's default device.
+	brightnessctl --machine-readable | awk -F ',' '{print $1}'
+}
+
 get_brightness() {
-	brightnessctl --machine-readable | awk -F ',' '{print $4}' | tr -d "%"
+	brightnessctl --machine-readable --device "$(get_device)" | awk -F ',' '{print $4}' | tr -d "%"
+}
+
+notify_brightness() {
+	local brightness=$1
+
+	notify-send "Brightness: ${brightness}%" --icon "contrast" \
+		--hint "int:value:${brightness}" \
+		--hint "string:x-canonical-private-synchronous:backlight"
 }
 
 set_brightness() {
 	local brightness=$1
 
-	brightnessctl set "${brightness}%" >/dev/null
+	brightnessctl --device "$(get_device)" set "${brightness}%" >/dev/null
+	notify_brightness "$brightness"
+}
 
-	notify-send "Brightness: ${brightness}%" --icon "contrast" \
-		--hint "int:value:${brightness}" \
-		--hint "string:x-canonical-private-synchronous:backlight"
+adjust_brightness() {
+	# $1 is a brightnessctl delta such as "+10%" or "10%-"; brightnessctl
+	# clamps both ends itself, so this never produces an invalid value.
+	brightnessctl --device "$(get_device)" set "$1" >/dev/null
+	notify_brightness "$(get_brightness)"
 }
 
 main() {
@@ -54,16 +100,10 @@ main() {
 			set_brightness "$value"
 			;;
 		up)
-			local brightness
-			brightness=$(get_brightness)
-
-			set_brightness $((brightness + value))
+			adjust_brightness "+${value}%"
 			;;
 		down)
-			local brightness
-			brightness=$(get_brightness)
-
-			set_brightness $((brightness - value))
+			adjust_brightness "${value}%-"
 			;;
 		*)
 			print_help >&2
