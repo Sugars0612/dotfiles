@@ -1,0 +1,10 @@
+{
+	"custom/qq": {
+		"exec": "~/.config/waybar/scripts/app-icon.sh qq",
+		"return-type": "json",
+		"format": "{}",
+		"hide-empty-text": true,
+		"interval": 5,
+		"on-click": "~/.config/waybar/scripts/app-focus.sh qq"
+	}
+}
