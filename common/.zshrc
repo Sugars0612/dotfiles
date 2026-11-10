@@ -113,3 +113,4 @@ fi
 source ${ZIM_HOME}/init.zsh
 # }}} End configuration added by Zim Framework install
 eval "$(starship init zsh)"
+fastfetch
