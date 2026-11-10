@@ -12,7 +12,7 @@ spawn-at-startup "waybar"
 // 输入法
 spawn-at-startup "fcitx5" "-d"
 // 通知权限 & 通知相关
-spawn-at-startup "/usr/lib/polkit-gnome-authentication-agent-1"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "mako"
 // 守护剪切板进程
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
@@ -23,5 +23,7 @@ spawn-at-startup "awww-daemon" "-n" "overview"
 spawn-at-startup "swayosd-server"
 // 自动锁屏（睡眠）
 spawn-at-startup "~/.config/niri/scripts/swayidle.sh"
+// 文件管理器 daemon（注册 FileManager1 D-Bus，让浏览器"打开所在文件夹"用 thunar）
+spawn-at-startup "thunar" "--daemon"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
