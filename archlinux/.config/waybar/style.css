@@ -2,7 +2,7 @@
 
 * {
 	font-family: "GoogleSansCode Nerd Font";
-	font-size: 13px;
+	font-size: 15px;
 	font-weight: 500;
 	color: @fg;
 }
@@ -11,7 +11,7 @@
 	background-color: @shadow;
 }
 #waybar > box {
-	margin: 3px;
+	margin: 4px;
 	background-color: @bg_0;
 }
 
@@ -25,10 +25,10 @@
 
 button {
 	border: none;
-	border-radius: 16px;
+	border-radius: 18px;
 	padding: 0 10px;
-	min-width: 16px;
-	min-height: 24px;
+	min-width: 18px;
+	min-height: 28px;
 }
 button:hover {
 	background-color: @bg_alt;
@@ -74,7 +74,7 @@ menu separator {
 }
 #workspaces button.active label,
 #workspaces button.focused label {
-	font-size: 18.75px;
+	font-size: 22px;
 	color: @accent;
 }
 
@@ -113,7 +113,7 @@ menu separator {
 }
 
 #custom-distro {
-	font-size: 18.75px;
+	font-size: 22px;
 	padding: 0 10px 0 5px;
 	background-color: @accent;
 	color: @bg_0;
@@ -201,8 +201,8 @@ menu separator {
 }
 
 #custom-power {
-	font-size: 16px;
-	border-radius: 16px;
+	font-size: 18px;
+	border-radius: 18px;
 	padding: 0 19px 0 16px;
 	color: @accent;
 }
@@ -217,7 +217,7 @@ menu separator {
 #custom-right,
 #custom-left_inverse,
 #custom-right_inverse {
-	font-size: 19.5px;
+	font-size: 22px;
 }
 
 #custom-left.accent,
