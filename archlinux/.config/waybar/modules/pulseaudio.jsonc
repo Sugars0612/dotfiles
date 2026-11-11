@@ -23,10 +23,7 @@
 		},
 		"min-length": 8,
 		"max-length": 8,
-		"on-click": "~/.config/waybar/scripts/sliders",
-		"on-click-right": "~/.config/waybar/scripts/volume output mute",
-		"on-scroll-up": "~/.config/waybar/scripts/volume output up",
-		"on-scroll-down": "~/.config/waybar/scripts/volume output down",
+		"on-click": "~/.config/waybar/scripts/volume output mute",
 		"tooltip-format": "输出设备: {desc}"
 	},
 
@@ -36,10 +33,7 @@
 		"format-source-muted": "󰍭 {volume}%",
 		"min-length": 8,
 		"max-length": 8,
-		"on-click": "~/.config/waybar/scripts/sliders",
-		"on-click-right": "~/.config/waybar/scripts/volume input mute",
-		"on-scroll-up": "~/.config/waybar/scripts/volume input up",
-		"on-scroll-down": "~/.config/waybar/scripts/volume input down",
+		"on-click": "~/.config/waybar/scripts/volume input mute",
 		"tooltip-format": "输入设备: {desc}"
 	}
 }
