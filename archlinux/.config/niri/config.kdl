@@ -23,6 +23,8 @@ environment {
     LANG "zh_CN.UTF-8"
     LANGUAGE "zh_CN"
     XMODIFIERS "@im=fcitx"
+    // QT应用字体配置
+    QT_QPA_PLATFORMTHEME "qt6ct"
 }
 
 cursor {
