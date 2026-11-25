@@ -29,6 +29,7 @@ chmod +x ./bootstrap-termux.sh ./install-termux.sh
   - 锁屏: swaylock
   - 应用启动器: fuzzel
   - 截图标注: satty
+  - 防火墙: firewalld
 
 - Arch Linux 软件配置
   - 终端复用器: tmux (使用[tpm](https://github.com/tmux-plugins/tpm)管理插件)
